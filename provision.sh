@@ -65,23 +65,3 @@ export DOWNLOADFILE="rstudio-server-"${TEMPNAME}"amd64.deb"
 wget https://download2.rstudio.org/${DOWNLOADFILE}
 gdebi -n $DOWNLOADFILE
 rm index.html
-
-
-
-#-----------------------------------------------------------------------------
-# Install R packages
-#-----------------------------------------------------------------------------
-# create an R script to install R packages
-# cat > install_Rpackages.R << EOL
-# options(repos = c(CRAN = "http://cran.cnr.berkeley.edu/"))
-# install.packages("dplyr")
-# install.packages("entropy")
-# install.packages("ggplot2")
-# install.packages("ggtern")
-# install.packages("plyr")
-# install.packages("reshape2")
-# install.packages("tidyr")
-# EOL
-
-# # run the R script 
-# Rscript install_Rpackages.R
