@@ -7,9 +7,11 @@
 # Description: Install R and RStudio on Ubuntu
 #-----------------------------------------------------------------------------
 
+# install dependent packages 
+apt-get install -y apt-utils python-software-properties software-properties-common tzdata
+
 # set time zone non-interactive way
 export DEBIAN_FRONTEND=noninteractive
-apt-get install -y tzdata
 ln -fs /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 ### echo "America/Los_Angeles" |  tee /etc/timezone 
@@ -30,7 +32,6 @@ apt-key adv --keyserver keyserver.ubuntu.com  --recv-keys E084DAB9
 apt-get update -y
 
 # add specfic PPA
-apt-get install -y apt-utils python-software-properties software-properties-common
 add-apt-repository -y ppa:marutter/rdev
 
 # update
