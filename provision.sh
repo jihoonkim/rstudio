@@ -30,7 +30,7 @@ apt-key adv --keyserver keyserver.ubuntu.com  --recv-keys E084DAB9
 apt-get update -y
 
 # add specfic PPA
-apt-get install -y python-software-properties 
+apt-get install -y python-software-properties software-properties-common
 add-apt-repository -y ppa:marutter/rdev
 
 # update
