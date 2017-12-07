@@ -53,12 +53,20 @@ apt-get install -y libapparmor1 gdebi-core wget
 #gdebi -n rstudio-1.0.136-amd64.deb
 #wget https://download1.rstudio.org/rstudio-xenial-1.1.383-amd64.deb
 #gdebi -n rstudio-1.1.383-amd64.deb
-wget --no-check-certificate http://www.rstudio.com/products/rstudio/download/
-export TEMPNAME=$(grep "amd64\.deb" index.html | grep rstudio | tail -n 1 | grep -o -P '(?<=rstudio-).*(?=amd64)')
-export DOWNLOADFILE="rstudio-"${TEMPNAME}"amd64.deb"
-wget https://download1.rstudio.org/${DOWNLOADFILE}
+#wget --no-check-certificate http://www.rstudio.com/products/rstudio/download/
+#export TEMPNAME=$(grep "amd64\.deb" index.html | grep rstudio-server | tail -n 1 | grep -o -P '(?<=rstudio-).*(?=amd64)')
+#export DOWNLOADFILE="rstudio-"${TEMPNAME}"amd64.deb"
+#wget https://download1.rstudio.org/${DOWNLOADFILE}
+#gdebi -n $DOWNLOADFILE
+#rm index.html
+
+wget --no-check-certificate  https://www.rstudio.com/products/rstudio/download-server/
+export TEMPNAME=$(grep "amd64\.deb" index.html | grep rstudio-server | tail -n 1 | grep -o -P '(?<=rstudio-server-).*(?=amd64)')
+export DOWNLOADFILE="rstudio-server-"${TEMPNAME}"amd64.deb"
+wget https://download2.rstudio.org/${DOWNLOADFILE}
 gdebi -n $DOWNLOADFILE
 rm index.html
+
 
 
 #-----------------------------------------------------------------------------
